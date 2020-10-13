@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use UxWeb\SweetAlert\ConvertMessagesIntoSweetAlert;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -29,7 +30,13 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    // protected $redirectTo = RouteServiceProvider::HOME;
+
+    protected function redirectTo()
+    {
+        alert()->success('Welcome !');
+        return route('home'); // return dynamicaly generated URL.
+    }
 
     /**
      * Create a new controller instance.
